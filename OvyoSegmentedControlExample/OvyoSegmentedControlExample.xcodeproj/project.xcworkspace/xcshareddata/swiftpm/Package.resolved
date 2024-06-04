@@ -1,0 +1,14 @@
+{
+  "pins" : [
+    {
+      "identity" : "ovyosegmentedcontrol",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/parveen-khan-ovyo/OvyoSegmentedControl",
+      "state" : {
+        "branch" : "main",
+        "revision" : "03358080fa2101ed0e772d7957333f5db331734c"
+      }
+    }
+  ],
+  "version" : 2
+}
