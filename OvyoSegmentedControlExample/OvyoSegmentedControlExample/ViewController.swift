@@ -6,7 +6,7 @@
 //
 
 import UIKit
-import OvyoSegmentedControlPackage
+//import OvyoSegmentedControlPackage
 
 class ViewController: UIViewController {
 
@@ -14,18 +14,20 @@ class ViewController: UIViewController {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
         
-        let viewInterface = OvyoSegmentedControlInterface()
-        viewInterface.setItems(["Tab1", "Tab2", "Tab3", "Tab4", "Tab5"])
-        viewInterface.setItemSelectedTitleColor(Color.red)
-        viewInterface.itemSelectedBarColor(Color.red)
+//        let viewInterface = OvyoSegmentedControlInterface()
+//        viewInterface.setItems(["Tab1", "Tab2", "Tab3", "Tab4", "Tab5"])
+//        viewInterface.setItemSelectedTitleColor(Color.red)
+//        viewInterface.itemSelectedBarColor(Color.red)
+        
+        ///uncomment to set item background color and radius
        // viewInterface.setItemBackgroundColor(.red)
        // viewInterface.setItemSelectedBackgroundColor(.green)
        // viewInterface.setCornerRadius(20)
         
-        let view1: UIView = viewInterface.create()
-        view.addSubview(view1)
+//        let view1: UIView = viewInterface.create()
+//        view.addSubview(view1)
 
-        view1.frame = CGRect(x: 0, y: 50, width: view.bounds.width, height: 40)
+     //   view1.frame = CGRect(x: 0, y: 50, width: view.bounds.width, height: 40)
     }
 
 
