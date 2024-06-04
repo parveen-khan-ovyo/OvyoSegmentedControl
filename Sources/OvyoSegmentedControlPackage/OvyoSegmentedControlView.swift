@@ -40,15 +40,20 @@ struct OvyoSegmentedControlView<M: OvyoSegmentedControlViewModel>: View {
                             selectedTab = tab
                             selectedIndex = index
                             viewModel.tabActionAtIndex(index)
-                        }) {
+                        })  {
                             VStack(spacing: 0) {
                                 Text(tab)
                                     .frame(maxWidth: .infinity)
                                     .foregroundColor(selectedTab == tab ? viewModel.itemSelectedTitleColor : viewModel.itemTitleColor)
+                                    .font(Font.custom(viewModel.fontName ?? "", size: viewModel.fontSize))
                                 Rectangle()
                                     .frame(height: viewModel.itemBarHeight)
                                     .foregroundColor(selectedTab == tab ? viewModel.itemSelectedBarColor : Color.clear)
                             }
+                            .padding()
+                            .background(selectedTab == tab ? viewModel.itemSelectedBackgroundColor : viewModel.itemBackgroundColor)
+                            .cornerRadius(viewModel.itemCornerRadius)
+                            
                         }
                         .padding()
                     }

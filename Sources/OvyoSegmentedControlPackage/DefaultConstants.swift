@@ -16,7 +16,7 @@ struct SegmentedControlDefaultSize {
     let itemSpacing: CGFloat = 0.0
     let focusBorderWidth: CGFloat = 0.0
     let segmentViewBorderWidth: CGFloat = 0.0
-    let itemRadius: CGFloat = 0.0
+    let itemCornerRadius: CGFloat = 0.0
     let itemBarHeight: CGFloat = 2.0
 }
 

@@ -28,6 +28,8 @@ class OvyoSegmentedControlViewModel: SegmentedControlViewModelProtocol {
 
     @Published var frameSize: CGSize = .zero
     @Published var itemSize: CGFloat = SegmentedControlDefaultSize().itemSize
+    @Published var itemCornerRadius: CGFloat = SegmentedControlDefaultSize().itemCornerRadius
+
     @Published var itemSpacing: CGFloat = SegmentedControlDefaultSize().itemSpacing
     @Published var focusBorderWidth: CGFloat = SegmentedControlDefaultSize().focusBorderWidth
     @Published var segmentViewBorderWidth: CGFloat = SegmentedControlDefaultSize().segmentViewBorderWidth

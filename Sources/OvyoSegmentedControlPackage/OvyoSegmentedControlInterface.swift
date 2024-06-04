@@ -7,11 +7,10 @@
 
 import Foundation
 import SwiftUI
-import UIKit
 
 public class OvyoSegmentedControlInterface: NSObject {
 
-    /// reference of  MultipleButtonCard View from SwiftUI
+    /// reference of  Segmented Control View from SwiftUI
     private var segmentedOCntrol: OvyoSegmentedControlView<OvyoSegmentedControlViewModel>?
 
     /// reference of the UIView created by the SwiftUI to be visible when interacting with UIKit
@@ -19,78 +18,96 @@ public class OvyoSegmentedControlInterface: NSObject {
 
     private let segmentedControlViewModel: OvyoSegmentedControlViewModel
 
-    /// default initializer of Multiple button view
+    /// default initializer of Segmented Control view
     /// - Parameter action: for adding handlers
     public init(action: SegmentedControlDelegate? = nil) {
         segmentedControlViewModel = OvyoSegmentedControlViewModel()
         segmentedControlViewModel.delegate = action
     }
 
-    /// set/update the frame of the MultipleButton  view
+    /// set/update the frame of the egmented Control  view
     /// - Parameter rect: A fixed frame for the resulting view in the  `CGRect` format
     public func setFrame(_ rect: CGRect) {
         segmentedControlViewModel.frameSize = rect.size
         // multipleButtonCardView?.frame.size = size
     }
 
-    /// set/update the items  view as MultiButtonItem
-    /// - Parameter items: it is the collection of items to show as a list of buttons in the MultiButtonItem
+    /// set/update the items  view as Segmented Control Item
+    /// - Parameter items: it is the collection of items to show as a list of buttons in the Segmented Control Item
     public func setItems(_ items: [String]) {
         segmentedControlViewModel.items = items
     }
 
-    /// set/update the focus border width  of the MultipleButton  view
-    /// - Parameter width: A `CGFloat` value which will set the focus border width of MultipleButton view
+    /// set/update the focus border width  of the Segmented Control  view
+    /// - Parameter width: A `CGFloat` value which will set the focus border width of Segmented Control view
     public func setFocusBorderWidth(_ width: CGFloat) {
         segmentedControlViewModel.focusBorderWidth = width
     }
 
-    /// set/update the background color  of the MultipleButton view
-    /// - Parameter color: A color `Hex String` which will  set the custom background color of  the  MultipleButton view e.g.  white: "#FFFFFF",  transparent : "#00FFFFFF"
+    /// set/update the background color  of the Segmented Control view
+    /// - Parameter color: A color `Hex String` which will  set the custom background color of  the  Segmented Control view e.g.  white: "#FFFFFF",  transparent : "#00FFFFFF"
     public func setBackgroundColor(_ color: String) {
         segmentedControlViewModel.backgroundColor = color.toColor()
     }
 
-    /// set/update the focus border color  of the MultipleButton view
-    /// - Parameter color: A color `Hex String` which will  set the custom focus border color of the MultipleButton view e.g.  white: "#FFFFFF",  transparent : "#00FFFFFF"
+    /// set/update the focus border color  of the Segmented Control view
+    /// - Parameter color: A color `Hex String` which will  set the custom focus border color of the Segmented Control view e.g.  white: "#FFFFFF",  transparent : "#00FFFFFF"
     public func setFocusBorderColor(_ color: String) {
         segmentedControlViewModel.focusBorderColor = color.toColor()
     }
+    
+    /// set/update the radius  of the Segmented Control Item  view
+    /// - Parameter size: A `CGFloat` value which will set the radius of item  view
+    public func setCornerRadius(_ radius: CGFloat) {
+        segmentedControlViewModel.itemCornerRadius = radius
+    }
 
     /// set/update the font name  of the card  view
-    /// - Parameter name: A  `Font name String` which will  set the custom font  of the MultipleButton view
+    /// - Parameter name: A  `Font name String` which will  set the custom font  of the Segmented Control view
     public func setFontName(_ name: String) {
         segmentedControlViewModel.fontName = name
     }
 
-    /// set/update the font size  of the card  view
-    /// - Parameter size: A `CGFloat` value which will set the font size of the MultipleButton view
+    /// set/update the font size  of the Segmented Control  view
+    /// - Parameter size: A `CGFloat` value which will set the font size of the Segmented Control view
     public func setFontSize(_ size: CGFloat) {
         segmentedControlViewModel.fontSize = size
     }
 
-    /// set/update the font weight of the texts used in the MultipleButton view
+    /// set/update the font weight of the texts used in the Segmented Control view
     /// - Parameter weight: A font weight which will set with default system font e.g. `bold`, `regular`
     public func setFontWeight(_ weight: Font.Weight) {
         segmentedControlViewModel.fontWeight = weight
     }
 
-    /// set/update the item size  of the MultipleButton view
-    /// - Parameter size: A `CGFloat` value which will set the item size of the card view (width and height is equal)
+    /// set/update the item size  of the Segmented Control view
+    /// - Parameter size: A `CGFloat` value which will set the item size of the Segmented Control Item view (width and height is equal)
     public func setItemSize(_ size: CGFloat) {
         segmentedControlViewModel.itemSize = size
     }
 
-    /// set/update the MultipleButton view  item background color
+    /// set/update the Segmented Control  view  item background color
     /// - Parameter color: A color `Hex String` which will  set the custom item background color e.g.  white: "#FFFFFF",  transparent : "#00FFFFFF"
     public func setItemBackgroundColor(_ color: String) {
         segmentedControlViewModel.itemBackgroundColor = color.toColor()
+    }
+    
+    /// set/update the Segmented Control view  item background color
+    /// - Parameter color: A color `Color value` which will  set the custom item background color e.g.  white: .white,  transparent : "Color.clear"
+    public func setItemBackgroundColor(_ color: Color) {
+        segmentedControlViewModel.itemBackgroundColor = color
     }
 
     /// set/update the selected item background color
     /// - Parameter color: A color `Hex String` which will  set the custom selected item background color e.g.  white: "#FFFFFF",  transparent : "#00FFFFFF"
     public func setItemSelectedBackgroundColor(_ color: String) {
         segmentedControlViewModel.itemSelectedBackgroundColor = color.toColor()
+    }
+    
+    /// set/update the selected item background color
+    /// - Parameter color: A color `Hex String` which will  set the custom selected item background color e.g.  "white",   "clear"
+    public func setItemSelectedBackgroundColor(_ color: Color) {
+        segmentedControlViewModel.itemSelectedBackgroundColor = color
     }
 
     /// set/update the  item title color
@@ -108,8 +125,24 @@ public class OvyoSegmentedControlInterface: NSObject {
     public func setItemSelectedTitleColor(_ color: String) {
         segmentedControlViewModel.itemSelectedTitleColor = color.toColor()
     }
+    
+    public func setItemSelectedTitleColor(_ color: Color) {
+        segmentedControlViewModel.itemSelectedTitleColor = color
+    }
+    
+    
+    /// set/update the selected item bar color
+    /// - Parameter color: A color `Hex String` which will  set the custom selected item title color e.g.  white: "#FFFFFF",  transparent : "#00FFFFFF"
+    public func itemSelectedBarColor(_ color: String) {
+        segmentedControlViewModel.itemSelectedBarColor = color.toColor()
+    }
+    
+    public func itemSelectedBarColor(_ color: Color) {
+        segmentedControlViewModel.itemSelectedBarColor = color
+    }
+    
 
-    /// set/update the position of Multiple button view with respect to its parent
+    /// set/update the position of Segmented Control view with respect to its parent
     /// - Parameter position: A fixed position with respect to parent view is defined for the resulting UI in the `CGPoint` format
     public func setPosition(_ position: CGPoint) {
         segmentedControlViewModel.position = position
@@ -118,12 +151,12 @@ public class OvyoSegmentedControlInterface: NSObject {
     /// set/update the  item title with respect to index
     /// - Parameters:
     ///   - title: A text which describe the item role
-    ///   - index: An `integer`  value which defines the position of item in card view
+    ///   - index: An `integer`  value which defines the position of item in Segmented Control view
     public func setItemTitle(_ title: String, atIndex index: Int) {
         segmentedControlViewModel.items[index] = title
     }
 
-    /// Add target to receive a MultiButtonCardDelegate events
+    /// Add target to receive a SegmentedControlDelegate events
     /// - Parameter action: for adding handlers
     public func addTarget(_ action: SegmentedControlDelegate) {
         segmentedControlViewModel.delegate = action
