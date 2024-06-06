@@ -23,6 +23,9 @@ class OvyoSegmentedControlViewModel: SegmentedControlViewModelProtocol {
     weak var delegate: SegmentedControlDelegate?
 
     @Published var items: [String] = []
+    @Published var itemImages:[Image] = []
+    @Published var selectedItemImages:[Image] = []
+    
     @Published var tabBackgroundColor: Color? = .gray
     @Published var forgroundColor: Color? = .clear
 

@@ -25,7 +25,7 @@ public class OvyoSegmentedControlInterface: NSObject {
         segmentedControlViewModel.delegate = action
     }
 
-    /// set/update the frame of the egmented Control  view
+    /// set/update the frame of the Segmented Control  view
     /// - Parameter rect: A fixed frame for the resulting view in the  `CGRect` format
     public func setFrame(_ rect: CGRect) {
         segmentedControlViewModel.frameSize = rect.size
@@ -37,8 +37,33 @@ public class OvyoSegmentedControlInterface: NSObject {
     public func setItems(_ items: [String]) {
         segmentedControlViewModel.items = items
     }
+    
+    /// set/update the items  view as Segmented Control
+    /// - Parameter images: it is the collection of items images (Image) to show as a list of buttons in the Segmented Control
+    public func setItemsImages(_ images: [Image]) {
+        segmentedControlViewModel.itemImages = images
+    }
+    
+    /// set/update the items  view as Segmented Control
+    /// - Parameter images: it is the collection of items images (UImage) to show as a list of buttons in the Segmented Control
+    public func setItemsImages(_ uiImages: [UIImage]) {
+        segmentedControlViewModel.itemImages = convertToSwiftUIImages(uiImages)
+    }
+    
+    /// set/update the items  view as Segmented Control
+    /// - Parameter images: it is the collection of selected items images to show as a list of buttons in the Segmented Control
+    public func setSelectedItemsImages(_ images: [Image]) {
+        segmentedControlViewModel.selectedItemImages = images
+    }
+    
+    /// set/update the items  view as Segmented Control
+    /// - Parameter images: it is the collection of selected items images to show as a list of buttons in the Segmented Control
+    public func setSelectedItemsImages(_ uiImages: [UIImage]) {
+        segmentedControlViewModel.selectedItemImages = convertToSwiftUIImages(uiImages)
+    }
 
-    /// set/update the focus border width  of the Segmented Control  view
+
+    /// set/update the focus border width  of the Segmented Control   view
     /// - Parameter width: A `CGFloat` value which will set the focus border width of Segmented Control view
     public func setFocusBorderWidth(_ width: CGFloat) {
         segmentedControlViewModel.focusBorderWidth = width
@@ -180,6 +205,18 @@ public class OvyoSegmentedControlInterface: NSObject {
         segmentedControlView = customView
         return customView
     }
+    
+    func convertToSwiftUIImages(_ uiImages: [UIImage]) -> [Image] {
+        var images: [Image] = []
+        
+        for uiImage in uiImages {
+            let image = Image(uiImage: uiImage)
+            images.append(image)
+        }
+        
+        return images
+    }
+
 }
 
 extension View {

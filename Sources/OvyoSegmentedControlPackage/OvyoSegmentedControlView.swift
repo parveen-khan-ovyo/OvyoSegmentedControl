@@ -25,15 +25,14 @@ struct OvyoSegmentedControlView<M: OvyoSegmentedControlViewModel>: View {
     @ObservedObject var viewModel: M
     private let isScrollable = false
 
-    //   let tabs = ["Tab 1", "Tab 2", "Tab 3", "Tab 4", "Tab 5"]
-    @State private var selectedTab: String?
+    @State private var selectedTab: String = ""
     @State var selectedIndex: Int = 0
 
     var body: some View {
         GeometryReader { geometry in
 
             ScrollView(.horizontal, showsIndicators: false) {
-
+                
                 HStack {
                     ForEach(Array(viewModel.items.enumerated()), id: \.offset) { index, tab in
                         Button(action: {
@@ -42,15 +41,25 @@ struct OvyoSegmentedControlView<M: OvyoSegmentedControlViewModel>: View {
                             viewModel.tabActionAtIndex(index)
                         })  {
                             VStack(spacing: 0) {
-                                Text(tab)
-                                    .frame(maxWidth: .infinity)
-                                    .foregroundColor(selectedTab == tab ? viewModel.itemSelectedTitleColor : viewModel.itemTitleColor)
-                                    .font(Font.custom(viewModel.fontName ?? "", size: viewModel.fontSize))
+                                HStack {
+                                    if viewModel.itemImages.count > index {
+                                        viewModel.itemImages[index]
+                                            .resizable()
+                                            .aspectRatio(contentMode: .fit)
+                                            .frame(height: 20)
+                                    }
+                                    if viewModel.items.count > index {
+                                        Text(tab)
+                                            .frame(maxWidth: .infinity)
+                                            .foregroundColor(selectedTab == tab ? viewModel.itemSelectedTitleColor : viewModel.itemTitleColor)
+                                            .font(Font.custom(viewModel.fontName ?? "", size: viewModel.fontSize))
+                                    }
+                                }
                                 Rectangle()
                                     .frame(height: viewModel.itemBarHeight)
                                     .foregroundColor(selectedTab == tab ? viewModel.itemSelectedBarColor : Color.clear)
                             }
-                            .padding()
+                           // .padding()
                             .background(selectedTab == tab ? viewModel.itemSelectedBackgroundColor : viewModel.itemBackgroundColor)
                             .cornerRadius(viewModel.itemCornerRadius)
                             
@@ -77,6 +86,68 @@ struct OvyoSegmentedControlView<M: OvyoSegmentedControlViewModel>: View {
         let height: CGFloat = 30 // Height of the above view
         return height + 0 // Add padding if needed
     }
+    
+    //TODO: Will use in future implementation
+    
+//    struct TabViewItem: View {
+//
+//        let viewModel: OvyoSegmentedControlViewModel
+//
+//        var tab: String
+//        @Binding var selectedTab: String
+//
+//        var image: Image?
+//        var selectedImage: Image?
+//
+//        //var text: String?
+//        var selectedText: String?
+//
+//        @State var selectedIndex: Int = 0
+//        var index: Int  = 0
+//
+//        var body: some View {
+//            VStack(spacing: 0) {
+//
+//              ///Will update it later
+//              //  let image: Image? = tab == selectedTab ? (selectedImage != nil ? selectedImage: image) : image
+//              //  let text: String? = tab == selectedTab ? (selectedText != nil ? selectedText: text) : text
+//
+//                if let image = image {
+//                    HStack {
+//                        image
+//                            .resizable()
+//                            .aspectRatio(contentMode: .fit)
+//                            .frame(height: 20)
+//                        Text(tab)
+//                            .font(.system(size: 16))
+//                    }
+//                    .padding()
+//                    .foregroundColor(selectedTab == tab ? viewModel.itemSelectedTitleColor : viewModel.itemTitleColor)
+//                } else if let image = image {
+//                    image
+//                        .resizable()
+//                        .aspectRatio(contentMode: .fit)
+//                        .frame(height: 50)
+//                        .padding()
+//                        .foregroundColor(selectedTab == tab ? viewModel.itemSelectedTitleColor : viewModel.itemTitleColor)
+//                } else  {
+//                    Text(tab)
+//                        .padding()
+//                        .foregroundColor(selectedTab == tab ? viewModel.itemSelectedTitleColor : viewModel.itemTitleColor)
+//                        .font(Font.custom(viewModel.fontName ?? "", size: viewModel.fontSize))
+//                }
+//
+//                Rectangle()
+//                    .frame(height: viewModel.itemBarHeight)
+//                    .foregroundColor(selectedTab == tab ? viewModel.itemSelectedBarColor : Color.blue)
+//            }
+//            .onTapGesture {
+//                selectedTab = tab
+//                selectedIndex = index
+//                viewModel.tabActionAtIndex(index)
+//            }
+//        }
+//    }
 }
 
 #Preview {
