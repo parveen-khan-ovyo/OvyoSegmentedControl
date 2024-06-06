@@ -6,7 +6,7 @@ import PackageDescription
 let package = Package(
     name: "OvyoSegmentedControlPackage",
     platforms: [
-            .iOS(.v13),
+            .iOS(.v17),
             .tvOS(.v12),
             .macOS(.v11)
         ],
