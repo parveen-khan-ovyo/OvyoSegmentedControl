@@ -18,6 +18,11 @@ class ViewController: UIViewController {
         viewInterface.setItems(["Tab1", "Tab2", "Tab3", "Tab4", "Tab5"])
         viewInterface.setItemSelectedTitleColor(Color.red)
         viewInterface.itemSelectedBarColor(Color.red)
+        let image: UIImage = UIImage.init(systemName: "star.fill")!
+        viewInterface.setItemsImages([image, image, image, image, image])
+        viewInterface.setFontName("HelveticaNeue-Bold")
+        viewInterface.setFontSize(20)
+        viewInterface.addTarget(self)
        // viewInterface.setItemBackgroundColor(.red)
        // viewInterface.setItemSelectedBackgroundColor(.green)
        // viewInterface.setCornerRadius(20)
