@@ -1,9 +1,6 @@
 # OvyoSegmentedCOntrol
 
 ![sgmentedControlText](https://github.com/parveen-khan-ovyo/OvyoSegmentedControl/assets/135009495/ff8bb9e6-9c36-4b04-a754-f25a7fb0ef15)
-![SegmentedControlImageWithText](https://github.com/parveen-khan-ovyo/OvyoSegmentedControl/assets/135009495/5c5b3e84-39ff-4b64-80e0-5ca7c8f95743)
-![SegmentedControlImage](https://github.com/parveen-khan-ovyo/OvyoSegmentedControl/assets/135009495/11596192-3bc7-4934-950e-2a74588c7ab4)
-
 
 Features
 📸 Supports both text and images
@@ -44,5 +41,8 @@ Segmented Control in SwiftUI View
 
 Possible Styles
 
-...inProgrss
+![sgmentedControlText](https://github.com/parveen-khan-ovyo/OvyoSegmentedControl/assets/135009495/ff8bb9e6-9c36-4b04-a754-f25a7fb0ef15)
+![SegmentedControlImageWithText](https://github.com/parveen-khan-ovyo/OvyoSegmentedControl/assets/135009495/5c5b3e84-39ff-4b64-80e0-5ca7c8f95743)
+![SegmentedControlImage](https://github.com/parveen-khan-ovyo/OvyoSegmentedControl/assets/135009495/11596192-3bc7-4934-950e-2a74588c7ab4)
+
 
