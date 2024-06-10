@@ -18,7 +18,7 @@ public protocol SegmentedControlDelegate: AnyObject {
 }
 
 class OvyoSegmentedControlViewModel: SegmentedControlViewModelProtocol {
-
+    
     /// output click Action protocol
     weak var delegate: SegmentedControlDelegate?
 
@@ -44,6 +44,9 @@ class OvyoSegmentedControlViewModel: SegmentedControlViewModelProtocol {
     @Published var backgroundColor: Color = SegmentedControlDefaultColor().backgroundColor.toColor()
     @Published var focusBorderColor: Color = SegmentedControlDefaultColor().focusBorderColor.toColor()
     @Published var segmentviewBorderColor: Color = SegmentedControlDefaultColor().segmentBorderColor.toColor()
+    
+    @Published var itemImageTintColor: Color? = nil
+    @Published var itemSelectedImageTintColor: Color? = nil
 
     /// Font
     @Published var fontName: String?
@@ -60,6 +63,8 @@ class OvyoSegmentedControlViewModel: SegmentedControlViewModelProtocol {
     @Published var itemSelectedBarColor: Color? = .white
     @Published var itemBarHeight: CGFloat = SegmentedControlDefaultSize().itemBarHeight
     @Published var selectedIndex: Int = 0
+    
+    @Published var itemBarIsHidden: Bool = false
 
     /// position
     @Published var position: CGPoint?

@@ -9,7 +9,7 @@ import Foundation
 import SwiftUI
 
 public class OvyoSegmentedControlInterface: NSObject {
-
+    
     /// reference of  Segmented Control View from SwiftUI
     private var segmentedOCntrol: OvyoSegmentedControlView<OvyoSegmentedControlViewModel>?
 
@@ -74,6 +74,12 @@ public class OvyoSegmentedControlInterface: NSObject {
     public func setBackgroundColor(_ color: String) {
         segmentedControlViewModel.backgroundColor = color.toColor()
     }
+    
+    /// set/update the background color  of the Segmented Control view
+    /// - Parameter color: A color `Hex String` which will  set the custom background color of  the  Segmented Control view e.g.  white: "#FFFFFF",  transparent : "clear"
+    public func setBackgroundColor(_ color: Color) {
+        segmentedControlViewModel.backgroundColor = color
+    }
 
     /// set/update the focus border color  of the Segmented Control view
     /// - Parameter color: A color `Hex String` which will  set the custom focus border color of the Segmented Control view e.g.  white: "#FFFFFF",  transparent : "#00FFFFFF"
@@ -134,6 +140,30 @@ public class OvyoSegmentedControlInterface: NSObject {
     public func setItemSelectedBackgroundColor(_ color: Color) {
         segmentedControlViewModel.itemSelectedBackgroundColor = color
     }
+    
+    /// set/update the Segmented Control  view  item tint color
+    /// - Parameter color: A color `Hex String` which will  set the custom item tint color e.g.  white: "#FFFFFF",  transparent : "#00FFFFFF"
+    public func setItemTintColor(_ color: String) {
+        segmentedControlViewModel.itemImageTintColor = color.toColor()
+    }
+    
+    /// set/update the Segmented Control view  item tint color
+    /// - Parameter color: A color `Color value` which will  set the custom item tint color e.g.  white: .white,  transparent : "Color.clear"
+    public func setItemTintColor(_ color: Color) {
+        segmentedControlViewModel.itemImageTintColor = color
+    }
+
+    /// set/update the selected item tint color
+    /// - Parameter color: A color `Hex String` which will  set the custom selected item tint color e.g.  white: "#FFFFFF",  transparent : "#00FFFFFF"
+    public func setItemSelectedTintColor(_ color: String) {
+        segmentedControlViewModel.itemSelectedImageTintColor = color.toColor()
+    }
+    
+    /// set/update the selected item tint color
+    /// - Parameter color: A color `Hex String` which will  set the custom selected item tint color e.g.  "white",   "clear"
+    public func setItemSelectedTintColor(_ color: Color) {
+        segmentedControlViewModel.itemSelectedImageTintColor = color
+    }
 
     /// set/update the  item title color
     /// - Parameter color: color: A color `Hex String` which will  set the custom item title color e.g.  white: "#FFFFFF",  transparent : "#00FFFFFF"
@@ -164,6 +194,10 @@ public class OvyoSegmentedControlInterface: NSObject {
     
     public func itemSelectedBarColor(_ color: Color) {
         segmentedControlViewModel.itemSelectedBarColor = color
+    }
+    
+    public func setItemBar(_ isHidden: Bool) {
+        segmentedControlViewModel.itemBarIsHidden = isHidden
     }
     
 
