@@ -55,6 +55,7 @@ struct OvyoSegmentedControlView<M: OvyoSegmentedControlViewModel>: View {
                                             .font(Font.custom(viewModel.fontName ?? "", size: viewModel.fontSize))
                                     }
                                 }
+                                Spacer()
                                 Rectangle()
                                     .frame(height: viewModel.itemBarHeight)
                                     .foregroundColor(selectedTab == tab ? viewModel.itemSelectedBarColor : Color.clear)
