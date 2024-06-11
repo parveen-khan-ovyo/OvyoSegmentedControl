@@ -21,7 +21,7 @@ The code below will create a segmented control with the default looks:
 
 Included is a demo project showing how to customize OvyoSegmentedControl.
 
-Segmented Control in UIView
+# Segmented Control in UIView
 
 let viewInterface = OvyoSegmentedControlInterface()
         viewInterface.setItems(["HOME", "EURO 2024", "SPORTS", "MOVIES", "TV SHOWS", "KIDS", "LIVE"])
@@ -30,12 +30,12 @@ let viewInterface = OvyoSegmentedControlInterface()
         viewInterface.setItemTitleColor(.white)
        // let image: UIImage = UIImage.init(systemName: "star.fill")!
         let image: UIImage = UIImage(named: "star")!
-       // image.withTintColor(.red, renderingMode: .alwaysTemplate)
         viewInterface.setItemTintColor(.white)
         viewInterface.setItemSelectedTintColor(.yellow)
+        
+       // Set images, assuming you have the UIImage assets in your project and set image render as template
        // viewInterface.setItemsImages([UIImage(named: "home")!, UIImage(named: "contacts")!, UIImage(named: "moneyTransfer")!, UIImage(named: "pcOnDesk")!,
        UIImage(named: "camper")!, UIImage(named: "userAccount")!, UIImage(named: "star")!])
-
      //To hide show bottom bar
       //  viewInterface.setItemBar(true)
       
@@ -46,13 +46,42 @@ let viewInterface = OvyoSegmentedControlInterface()
         view.addSubview(view1)
         view1.backgroundColor = .black
         view1.frame = CGRect(x: 0, y: 64, width: view.bounds.width, height: 50)
-
         viewInterface.setItemBackgroundColor(.red)
         viewInterface.setItemSelectedBackgroundColor(.green)
         viewInterface.setCornerRadius(20)
         
 
-Segmented Control in SwiftUI View
+# Segmented Control in SwiftUI View
+
+struct ContentView: View {
+    var body: some View {
+        let interface = OvyoSegmentedControlInterface()
+        interface.setItems(["HOME", "EURO 2024", "SPORTS", "MOVIES", "TV SHOWS", "KIDS", "LIVE"])
+        interface.setItemSelectedTitleColor(Color.yellow)
+        interface.itemSelectedBarColor(Color.yellow)
+        interface.setItemTitleColor(.white)
+        // Set images, assuming you have the UIImage assets in your project and set image render as template
+        let images: [UIImage] = [UIImage(named: "home")!, UIImage(named: "contacts")!, UIImage(named: "moneyTransfer")!, UIImage(named: "pcOnDesk")!, UIImage(named: "camper")!, UIImage(named: "userAccount")!, UIImage(named: "star")!]
+        interface.setItemsImages(images)
+        interface.setItemTintColor(.white)
+        interface.setItemSelectedTintColor(.yellow)
+        interface.setFontName("Gotham-Bold")
+        interface.setFontSize(12)
+        interface.addTarget(Coordinator())
+        return VStack { interface.create()
+                .background(Color.black)
+                .frame(width: UIScreen.main.bounds.width, height: 50)
+                .padding(.top, 20)
+            Spacer()
+        }
+    }
+}
+
+class Coordinator: SegmentedControlDelegate {
+    func tabDidClickAt(_ index: Int) {
+        print("index is", index)
+    }
+}
 
 # Possible Styles
 
@@ -61,9 +90,7 @@ Segmented Control in SwiftUI View
 ![SegmentedControlImage](https://github.com/parveen-khan-ovyo/OvyoSegmentedControl/assets/135009495/11596192-3bc7-4934-950e-2a74588c7ab4)
 
 # Maintainers
-Parveen - parveen.khan@ovyo.com, 
-Vishal - vishal@ovyo.com, 
-Srikant - srikanth.suryawanshi@ovyo.com
+Parveen - parveen.khan@ovyo.com
 
 
 
