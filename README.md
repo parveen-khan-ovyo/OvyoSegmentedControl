@@ -61,7 +61,7 @@ Segmented Control in SwiftUI View
 ![SegmentedControlImage](https://github.com/parveen-khan-ovyo/OvyoSegmentedControl/assets/135009495/11596192-3bc7-4934-950e-2a74588c7ab4)
 
 # Maintainers
-Vishal - vishal@ovyo.com
+Vishal - vishal@ovyo.com, 
 Srikant - srikanth.suryawanshi@ovyo.com
 
 
