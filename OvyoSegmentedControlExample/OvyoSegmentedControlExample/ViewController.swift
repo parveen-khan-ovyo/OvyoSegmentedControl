@@ -15,21 +15,24 @@ class ViewController: UIViewController, SegmentedControlDelegate {
         super.viewDidLoad()
         
         let viewInterface = OvyoSegmentedControlInterface()
-        viewInterface.setItems(["Tab1", "Tab2", "Tab3", "Tab4", "Tab5"])
-        viewInterface.setItemSelectedTitleColor(Color.red)
-        viewInterface.itemSelectedBarColor(Color.red)
+        viewInterface.setItems(["HOME", "EURO 2024", "SPORTS", "MOVIES", "TV SHOWS", "KIDS", "LIVE"])
+        viewInterface.setItemSelectedTitleColor(.yellow)
+        viewInterface.itemSelectedBarColor(.yellow)
         let image: UIImage = UIImage.init(systemName: "star.fill")!
+        image.withTintColor(.blue, renderingMode: .alwaysTemplate)
         viewInterface.setItemsImages([image, image, image, image, image])
-        viewInterface.setFontName("HelveticaNeue-Bold")
-        viewInterface.setFontSize(20)
+        viewInterface.setFontName("Gotham-Bold")
+        viewInterface.setFontSize(12)
+        viewInterface.setItemTitleColor(.white)
+        //viewInterface.setBackgroundColor("#000000")
         viewInterface.addTarget(self)
-        // viewInterface.setItemBackgroundColor(.red)
-        // viewInterface.setItemSelectedBackgroundColor(.green)
-        // viewInterface.setCornerRadius(20)
+       // viewInterface.setItemBackgroundColor(.red)
+       // viewInterface.setItemSelectedBackgroundColor(.green)
+       // viewInterface.setCornerRadius(20)
         
         let view1: UIView = viewInterface.create()
         view.addSubview(view1)
-        
+        view1.backgroundColor = .clear
         view1.frame = CGRect(x: 0, y: 50, width: view.bounds.width, height: 40)
     }
 
